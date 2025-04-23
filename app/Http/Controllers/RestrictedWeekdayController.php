@@ -6,16 +6,16 @@ use App\Models\RestrictedWeekday;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class RestrictedWeekdayController extends Controller
 {
 
- public function showWeekdayForm()
+ public function show()
 {
     $restrictedDays = RestrictedWeekday::pluck('weekday')->toArray();
-    return view('admin.restrict_days', compact('restrictedDays'));
+    return view('admin.show', compact('restrictedDays'));
 }
 
-public function saveWeekdays(Request $request)
+public function store(Request $request)
 {
     RestrictedWeekday::truncate(); // clear old data
 

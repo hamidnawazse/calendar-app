@@ -1,5 +1,5 @@
 <!-- resources/views/admin/restrict_days.blade.php -->
-<form method="POST" action="{{ route('admin.saveWeekdays') }}">
+<form method="POST" action="{{ route('admin.store') }}">
     @csrf
     @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as $day)
         <label>

@@ -6,10 +6,10 @@ use App\Models\AddDate;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class DateSelectionController extends Controller
 {
     //
-    public function showForm()
+    public function show()
     {
         $restrictedDays=RestrictedWeekday::pluck('weekday')->toArray();
         return view('user.show',compact('restrictedDays')); 
