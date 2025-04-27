@@ -10,6 +10,7 @@
 
 <script>
     const restricted = @json($restrictedDays); 
+    const blockedDates = @json($blockedDates);
     const dayMap = {
         'Sunday': 0,
         'Monday': 1,
@@ -27,7 +28,14 @@
         disable: [
             function(date) {
                 // Disable restricted weekdays
-                return disabledDays.includes(date.getDay());
+            if(disabledDays.includes(date.getDay()))
+            {
+                return true;
+            }
+            //Disable the particular date if the orders limit have been exceeded.
+            const dateString = flatpickr.formatDate(date, "Y-m-d");
+            return blockedDates.includes(dateString);
+
             }
         ]
     });

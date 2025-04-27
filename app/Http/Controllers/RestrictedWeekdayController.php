@@ -20,8 +20,12 @@ public function store(Request $request)
     RestrictedWeekday::truncate(); // clear old data
 
     foreach ($request->weekdays as $day) {
-        RestrictedWeekday::create(['weekday' => $day]);
+        RestrictedWeekday::create([
+            'weekday' => $day,
+            'order_count' => $request->order_count,
+    ]);
     }
+    //RestrictedWeekday::create(['order_count' => $order_Count]);
 
     return back()->with('success', 'Weekdays updated successfully!');
 }
