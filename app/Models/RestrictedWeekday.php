@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class RestrictedWeekday extends Model
 {
     //
-    protected $fillable=['weekday','order_count'];
+    protected $fillable=['weekday','order_count','product_type','product_count'];
 }

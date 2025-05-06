@@ -11,6 +11,7 @@
 <script>
     const restricted = @json($restrictedDays); 
     const blockedDates = @json($blockedDates);
+    const blockDateType = @json($blockedDates_type);
     const dayMap = {
         'Sunday': 0,
         'Monday': 1,
@@ -34,7 +35,13 @@
             }
             //Disable the particular date if the orders limit have been exceeded.
             const dateString = flatpickr.formatDate(date, "Y-m-d");
-            return blockedDates.includes(dateString);
+            if (blockedDates.includes(dateString) || blockDateType.includes(dateString)) {
+                return true;
+            }
+            //return blockedDates.includes(dateString);
+            //Disable the particular date if the limit is exceeded for a particular product type
+            // const dateStr = flatpickr.formatDate(date, "Y-m-d");
+            // return blockDateType.includes(dateStr);
 
             }
         ]

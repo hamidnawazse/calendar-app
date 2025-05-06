@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserOrder;
+use App\Models\Product;
 
 class UserOrderController extends Controller
 {
@@ -34,9 +36,11 @@ class UserOrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
         //
+
+
     }
 
     /**

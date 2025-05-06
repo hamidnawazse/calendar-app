@@ -22,6 +22,21 @@
 <input type="number" value="" name="order_count" placeholder="Add number of Orders">
 <br>
 <br>
+<select name="product_type" id="product_type">
+    <option>---Select Product Type---</option>
+    {{-- <option value="Laptop">Laptop</option>
+    <option value="Shirt">Shirt</option>
+    <option value="Shoe">Shoe</option>
+    <option value="Bag">Bag</option> --}}
+    @foreach ($productTypes as $type )
+        <option value="{{$type}}">{{$type}}</option>
+    @endforeach
+</select>
+<br>
+<br>
+<input type="number" value="" name="product_count" placeholder="Product Type Count">
+<br>
+<br>
  <button type="submit">Save</button>
  
 </form>
